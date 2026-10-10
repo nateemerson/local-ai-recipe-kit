@@ -1,0 +1,442 @@
+{
+ "schema": "local-ai-recipe-kit/submission/v1",
+ "submitted": "2026-10-10",
+ "handle": "nateemerson",
+ "target": "glm-5.3-flash-offload",
+ "launch": {
+  "image": "glm53-flash-offload:0fbc0c5-sm86-sm120",
+  "image_id": "sha256:b8275a3e35f7c12f00c16dd79dedb2ce2a00e05131a9d3abf0fd40188af191a2",
+  "image_source": "github.com/sybil-solutions/glm53-flash-offload@0fbc0c5, docker/Dockerfile, --build-arg TORCH_CUDA_ARCH_LIST=8.6;12.0 MAX_JOBS=16, docker build --network=host",
+  "replaces_image": "ghcr.io/sybil-solutions/glm53-flash-offload@sha256:aa74200f16c86588b101be2315aed2f643d148559179eef52a02599016b56e69",
+  "entrypoint": "/opt/glm53/docker/entrypoint.sh",
+  "args": [
+   "-m",
+   "/models/turboderp-GLM-5.3-Flash-exl3-3.05bpw",
+   "-cs",
+   "204800",
+   "--max-batch-size",
+   "8",
+   "-chunk_size",
+   "8192",
+   "-ambs",
+   "4",
+   "--host",
+   "0.0.0.0",
+   "--port",
+   "30000",
+   "--served-name",
+   "glm-5.3-flash"
+  ],
+  "env": {
+   "GLM53_MODE": "nvme-exact",
+   "GLM53_MODEL_DIR": "/models/turboderp-GLM-5.3-Flash-exl3-3.05bpw",
+   "GLM53_MODEL_DOWNLOAD": "0",
+   "GLM53_NV_STORE_DIR": "/nvx",
+   "HF_HUB_OFFLINE": "1",
+   "GLM53_TRITON_PIN": "",
+   "GLM53_EC_RESERVE_GB": "1.5"
+  },
+  "shm": "1g",
+  "memory_bytes": 59055800320,
+  "memory_swap_bytes": 59055800320,
+  "ulimit_memlock": "-1",
+  "gpu": "0",
+  "network": "bridge",
+  "ports": [
+   "127.0.0.1:30000:30000"
+  ],
+  "volumes": [
+   "/models/turboderp--GLM-5.3-Flash-exl3@332ab457b709/turboderp-GLM-5.3-Flash-exl3-3.05bpw:/models/turboderp-GLM-5.3-Flash-exl3-3.05bpw:ro",
+   "/models/glm53-nvx:/nvx:ro"
+  ],
+  "source": "local-ai-registry launches/exllamav3-glm-5.3-flash-exl3-3.05bpw-nvme-55g-128k-rtx-3090-24gb.json, unchanged except image (sm_120 rebuild) and host paths",
+  "changes": [
+   "GLM53_TRITON_PIN= (empty: 3090 Triton autotune pin has no matching config on sm_120)",
+   "GLM53_EC_MAX_SLOTS removed (cache sized from free VRAM, reserve 1.5 GB default)",
+   "GLM53_MODE=nvme-exact (no CPU lane)",
+   "GLM53_EC_RESERVE_GB=1.5 (nvme-exact defaults to 1.0; held at the nvme value so only the mode changes vs a3)",
+   "-cs 204800 (D1: 200K context)"
+  ]
+ },
+ "probe": {
+  "host": {
+   "kernel": "7.2.5-3-omarchy",
+   "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+   "cpus": 32,
+   "avx512": true
+  },
+  "ram": {
+   "total_gb": 132.59,
+   "available_gb": 119.64,
+   "swap_total_gb": 265.19,
+   "swap_used_gb": 0.0
+  },
+  "storage": {
+   "path": "/models",
+   "free_gb": 3663.58,
+   "total_gb": 3936.82,
+   "device": "/dev/nvme1n1p1",
+   "fstype": "ext4",
+   "physical_disks": [
+    {
+     "disk": "nvme1n1",
+     "nvme": true,
+     "rotational": false,
+     "model": "CT4000T500SSD3"
+    }
+   ],
+   "all_nvme": true
+  },
+  "gpus": [
+   {
+    "vendor": "nvidia",
+    "index": 0,
+    "name": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+    "vram_gb": 96,
+    "vram_mib": 97887,
+    "vram_used_mib": 439,
+    "pci": "00000000:01:00.0",
+    "pcie_gen_max": "5",
+    "pcie_width_max": "16",
+    "driver": "610.57.04"
+   }
+  ]
+ },
+ "quality": {
+  "panel": {
+   "top1_agreement": 0.9870009285051068,
+   "mean_kl_top20": 0.003282561231136672,
+   "positions": 2154
+  },
+  "needle": {
+   "prompt_tokens": 194257,
+   "depth": 0.8,
+   "code": "2872-3546",
+   "answer": "2872-3546",
+   "pass": true,
+   "seconds": 113.8
+  }
+ },
+ "speed": {
+  "status": "DONE",
+  "config": "glm53-flash-offload 0fbc0c5 rebuilt TORCH_CUDA_ARCH_LIST=8.6;12.0 (image b8275a3e35f7); registry nvme-55g launch + GLM53_MODE=nvme-exact, GLM53_EC_RESERVE_GB=1.5, no GLM53_EC_MAX_SLOTS (9312 slots), GLM53_TRITON_PIN= ; --memory 55g memlock -1; -cs 204800",
+  "prefill": {
+   "8192": {
+    "median": 2679.9,
+    "min": 2583.8,
+    "max": 2723.0,
+    "n": 3,
+    "all": [
+     2583.8,
+     2679.9,
+     2723.0
+    ]
+   },
+   "16384": {
+    "median": 3220.6,
+    "min": 3200.1,
+    "max": 3232.3,
+    "n": 3,
+    "all": [
+     3232.3,
+     3220.6,
+     3200.1
+    ]
+   },
+   "32768": {
+    "median": 3103.2,
+    "min": 3091.1,
+    "max": 3146.5,
+    "n": 3,
+    "all": [
+     3146.5,
+     3103.2,
+     3091.1
+    ]
+   },
+   "65536": {
+    "median": 3306.9,
+    "min": 3249.8,
+    "max": 3323.7,
+    "n": 3,
+    "all": [
+     3323.7,
+     3306.9,
+     3249.8
+    ]
+   }
+  },
+  "decode": {
+   "C1": {
+    "aggregate": {
+     "median": 67.225,
+     "min": 66.8,
+     "max": 67.65,
+     "n": 2,
+     "all": [
+      67.65,
+      66.8
+     ]
+    },
+    "per_stream_mean": {
+     "median": 67.185,
+     "min": 66.75,
+     "max": 67.62,
+     "n": 2,
+     "all": [
+      67.62,
+      66.75
+     ]
+    },
+    "gpu_power_w_mean": 400.4,
+    "rounds": [
+     {
+      "aggregate": 67.65,
+      "tokens": 1986,
+      "ttft_max": 0.41,
+      "finish": [
+       "stop"
+      ]
+     },
+     {
+      "aggregate": 66.8,
+      "tokens": 1520,
+      "ttft_max": 0.27,
+      "finish": [
+       "stop"
+      ]
+     }
+    ]
+   },
+   "C2": {
+    "aggregate": {
+     "median": 86.355,
+     "min": 85.54,
+     "max": 87.17,
+     "n": 2,
+     "all": [
+      87.17,
+      85.54
+     ]
+    },
+    "per_stream_mean": {
+     "median": 46.545,
+     "min": 44.56,
+     "max": 48.53,
+     "n": 2,
+     "all": [
+      48.53,
+      44.56
+     ]
+    },
+    "gpu_power_w_mean": 396.0,
+    "rounds": [
+     {
+      "aggregate": 87.17,
+      "tokens": 4075,
+      "ttft_max": 0.53,
+      "finish": [
+       "stop"
+      ]
+     },
+     {
+      "aggregate": 85.54,
+      "tokens": 3797,
+      "ttft_max": 0.54,
+      "finish": [
+       "stop"
+      ]
+     }
+    ]
+   },
+   "C3": {
+    "aggregate": {
+     "median": 74.96000000000001,
+     "min": 74.24,
+     "max": 75.68,
+     "n": 2,
+     "all": [
+      75.68,
+      74.24
+     ]
+    },
+    "per_stream_mean": {
+     "median": 45.7,
+     "min": 44.87,
+     "max": 46.53,
+     "n": 2,
+     "all": [
+      46.53,
+      44.87
+     ]
+    },
+    "gpu_power_w_mean": 371.2,
+    "rounds": [
+     {
+      "aggregate": 75.68,
+      "tokens": 6572,
+      "ttft_max": 53.1,
+      "finish": [
+       "stop"
+      ]
+     },
+     {
+      "aggregate": 74.24,
+      "tokens": 5772,
+      "ttft_max": 45.92,
+      "finish": [
+       "stop"
+      ]
+     }
+    ]
+   },
+   "C4": {
+    "aggregate": {
+     "median": 110.565,
+     "min": 106.44,
+     "max": 114.69,
+     "n": 2,
+     "all": [
+      114.69,
+      106.44
+     ]
+    },
+    "per_stream_mean": {
+     "median": 32.335,
+     "min": 32.13,
+     "max": 32.54,
+     "n": 2,
+     "all": [
+      32.54,
+      32.13
+     ]
+    },
+    "gpu_power_w_mean": 397.8,
+    "rounds": [
+     {
+      "aggregate": 114.69,
+      "tokens": 6417,
+      "ttft_max": 1.04,
+      "finish": [
+       "stop"
+      ]
+     },
+     {
+      "aggregate": 106.44,
+      "tokens": 7414,
+      "ttft_max": 1.02,
+      "finish": [
+       "stop"
+      ]
+     }
+    ]
+   },
+   "C1@32k": {
+    "aggregate": {
+     "median": 63.55499999999999,
+     "min": 60.62,
+     "max": 66.49,
+     "n": 2,
+     "all": [
+      60.62,
+      66.49
+     ]
+    },
+    "per_stream_mean": null,
+    "gpu_power_w_mean": null,
+    "rounds": [
+     {
+      "aggregate": 60.62,
+      "tokens": 2378,
+      "ttft_max": 8.88,
+      "finish": [
+       "stop"
+      ]
+     },
+     {
+      "aggregate": 66.49,
+      "tokens": 1905,
+      "ttft_max": 0.3,
+      "finish": [
+       "stop"
+      ]
+     }
+    ]
+   }
+  },
+  "prompt_sha256": [
+   "0f28489b386d13a81719295aff2db62523cd38d634d60a323d8bd08ebbd250c9",
+   "d7d487a34d7486ce198ca1561424e262b3bf28769ec0a0556cf62f86d876ee03",
+   "0f28489b386d13a81719295aff2db62523cd38d634d60a323d8bd08ebbd250c9",
+   "24242b3b74408fd073e84750d274c85cba6a807ca0d5eb8a100bf930459878a5",
+   "d7d487a34d7486ce198ca1561424e262b3bf28769ec0a0556cf62f86d876ee03",
+   "0b254a05e44b9af4d2129f340cfc06bea8f7565f47b0dbba7d567ce3f59d056a",
+   "0f28489b386d13a81719295aff2db62523cd38d634d60a323d8bd08ebbd250c9",
+   "24242b3b74408fd073e84750d274c85cba6a807ca0d5eb8a100bf930459878a5",
+   "ca676030cd09f9de6a90b6b82b0647d98054ed5b5897ba9767f6ec8b2240d807",
+   "d7d487a34d7486ce198ca1561424e262b3bf28769ec0a0556cf62f86d876ee03",
+   "0b254a05e44b9af4d2129f340cfc06bea8f7565f47b0dbba7d567ce3f59d056a",
+   "32caadb592d6370852dbf56c98e1e053b16549895ae549cec1e173dc39c7c30c",
+   "0f28489b386d13a81719295aff2db62523cd38d634d60a323d8bd08ebbd250c9",
+   "24242b3b74408fd073e84750d274c85cba6a807ca0d5eb8a100bf930459878a5",
+   "ca676030cd09f9de6a90b6b82b0647d98054ed5b5897ba9767f6ec8b2240d807",
+   "277c8ec79e8c07aa3d2e853f0120b8be3d4e8e257f79a3f7a15f1544a6508974",
+   "d7d487a34d7486ce198ca1561424e262b3bf28769ec0a0556cf62f86d876ee03",
+   "0b254a05e44b9af4d2129f340cfc06bea8f7565f47b0dbba7d567ce3f59d056a",
+   "32caadb592d6370852dbf56c98e1e053b16549895ae549cec1e173dc39c7c30c",
+   "7597806a5f0316cf16afe7981770c6cfd9448a0ac258c9c96eb4158b651b7750",
+   "cc68961fbb9a799598f57b8b785d175791651d668c84202f7ffd9b3ad2203020",
+   "089bbcf99a620906f1632a4e5a3796812159e4faaaef2eb8271dafad0611bd2d"
+  ],
+  "server_args": {
+   "max_running_requests": 8,
+   "max_total_num_tokens": 204800,
+   "chunked_prefill_size": 8192,
+   "kv_cache_dtype": "fp16",
+   "context_length": 204800,
+   "mem_fraction_static": null,
+   "max_mamba_cache_size": null
+  },
+  "gates": {
+   "prefill_8192": {
+    "value": 2679.9,
+    "best_known": null,
+    "pass": true
+   },
+   "prefill_16384": {
+    "value": 3220.6,
+    "best_known": null,
+    "pass": true
+   },
+   "prefill_32768": {
+    "value": 3103.2,
+    "best_known": null,
+    "pass": true
+   },
+   "prefill_65536": {
+    "value": 3306.9,
+    "best_known": null,
+    "pass": true
+   },
+   "decode_C1": {
+    "value": 67.22,
+    "best_known": null,
+    "pass": true
+   },
+   "decode_C4": {
+    "value": 110.56,
+    "best_known": null,
+    "pass": true
+   }
+  }
+ },
+ "needs_measured": {
+  "samples": 3446,
+  "mem_available_start_gb": 116.88,
+  "mem_available_min_gb": 60.66,
+  "host_ram_drop_peak_gb": 56.22,
+  "swap_used_max_gb": 0.1,
+  "gpu_used_peak_mib": 96762.0
+ },
+ "notes": "GLM-5.3-Flash EXL3 3.05bpw on ONE RTX PRO 6000 Blackwell 96 GB (sm_120), 200K context. Base: registry 3090 NVMe 55g launch; changes: image rebuilt at glm53-flash-offload 0fbc0c5 with TORCH_CUDA_ARCH_LIST=8.6;12.0 (published digests are sm_86 only); GLM53_TRITON_PIN empty (the 3090 pick for chunk_gated_delta_rule_fwd_kernel_h_blockdim64 does not exist on sm_120 and asserts at load); expert cache uncapped (9,312 slots, 87.9 GB); GLM53_MODE=nvme-exact (no CPU lane; decode on the exact GPU path) with GLM53_EC_RESERVE_GB=1.5 (nvme-exact default 1.0 OOMs in prefill); -cs 204800. Panel 0.9870/0.0033 (0.9865-0.9875 over 6 launches): below the target's 1.0000/0 band because the 3090 Triton pin cannot load on sm_120, matching the target's note that a different pick set gives 0.989/0.0034. Needle pass at 194,257 tokens. Supplementary long-context report (TTFT/ITL percentiles to 192K, concurrency, 45-trial needle, power) available. TODO(Sero): (1) image: our local build is not pullable - CI build with 8.6;12.0, or pin a digest we push; (2) quality band on sm_120 without the 3090 pin; (3) multi-user: 4x32K or 8x16K simultaneous prefill OOMs at reserve 1.5 GB."
+}
