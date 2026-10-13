@@ -13,7 +13,13 @@ transport differs:
 import argparse, json, os, random, statistics, sys, threading, time, urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from sweep import TOPICS, Power, med, rand_ids  # noqa: E402
+from sweep import TOPICS, Power, med  # noqa: E402
+
+
+def rand_ids(n, seed):
+    # sweep.py draws ids from 1000-150000; some vocabularies are smaller (Nemotron 131,072, LFM2 65,536), so stay below 60,000
+    rng = random.Random(seed)
+    return [rng.randrange(1000, 60000) for _ in range(n)]
 
 MODEL = None
 
@@ -36,6 +42,8 @@ def post(url, ids, max_tokens, first_only=False, timeout=7200):
             if body == "[DONE]":
                 break
             ev = json.loads(body)
+            if ev.get("error") or ev.get("object") == "error":
+                raise RuntimeError(f"server error in stream: {str(ev)[:300]}")
             if ev.get("usage"):
                 usage = ev["usage"]
             for ch in ev.get("choices") or []:
