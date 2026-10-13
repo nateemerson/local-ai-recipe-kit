@@ -1,0 +1,65 @@
+{"_meta": {"source": "hand-written for local-ai-recipe-kit (2026-10-12)", "license": "same as this repo", "n": 64, "domains": {"math": 8, "code": 10, "knowledge": 12, "writing": 8, "reasoning": 8, "instructions": 8, "multilingual": 10}}}
+{"id": "agree-00", "domain": "math", "messages": [{"role": "user", "content": "A train leaves at 09:40 and arrives at 13:15. How long is the trip in minutes? Show your working."}]}
+{"id": "agree-01", "domain": "math", "messages": [{"role": "user", "content": "Solve for x: 3x - 7 = 2x + 11."}]}
+{"id": "agree-02", "domain": "math", "messages": [{"role": "user", "content": "What is the derivative of x^3 * sin(x)?"}]}
+{"id": "agree-03", "domain": "math", "messages": [{"role": "user", "content": "A shop discounts a $80 jacket by 25% and then adds 8% sales tax. What is the final price?"}]}
+{"id": "agree-04", "domain": "math", "messages": [{"role": "user", "content": "Prove that the sum of two odd integers is even."}]}
+{"id": "agree-05", "domain": "math", "messages": [{"role": "user", "content": "How many ways can 5 people sit in a row if two of them insist on sitting next to each other?"}]}
+{"id": "agree-06", "domain": "math", "messages": [{"role": "user", "content": "Compute the integral of 1/(1+x^2) from 0 to 1."}]}
+{"id": "agree-07", "domain": "math", "messages": [{"role": "user", "content": "Explain why 0.999... equals 1."}]}
+{"id": "agree-08", "domain": "code", "messages": [{"role": "user", "content": "Write a Python function that returns the n-th Fibonacci number iteratively."}]}
+{"id": "agree-09", "domain": "code", "messages": [{"role": "user", "content": "What does this do? `[x for x in range(20) if x % 3 == 0 and x % 2]`"}]}
+{"id": "agree-10", "domain": "code", "messages": [{"role": "user", "content": "Write a SQL query that returns the three customers with the highest total order value from tables customers(id, name) and orders(id, customer_id, amount)."}]}
+{"id": "agree-11", "domain": "code", "messages": [{"role": "user", "content": "Explain the difference between a process and a thread."}]}
+{"id": "agree-12", "domain": "code", "messages": [{"role": "user", "content": "Write a bash one-liner that counts the lines in all .py files under the current directory."}]}
+{"id": "agree-13", "domain": "code", "messages": [{"role": "user", "content": "Find the bug: def avg(xs): return sum(xs) / len(xs) - when does it fail and how would you fix it?"}]}
+{"id": "agree-14", "domain": "code", "messages": [{"role": "user", "content": "Implement binary search in Rust over a sorted slice of i32."}]}
+{"id": "agree-15", "domain": "code", "messages": [{"role": "user", "content": "What is the time complexity of building a heap from n elements, and why?"}]}
+{"id": "agree-16", "domain": "code", "messages": [{"role": "user", "content": "Write a JavaScript debounce function."}]}
+{"id": "agree-17", "domain": "code", "messages": [{"role": "user", "content": "Explain what a race condition is with a short example."}]}
+{"id": "agree-18", "domain": "knowledge", "messages": [{"role": "user", "content": "Why is the sky blue?"}]}
+{"id": "agree-19", "domain": "knowledge", "messages": [{"role": "user", "content": "Summarise the causes of the First World War in five bullet points."}]}
+{"id": "agree-20", "domain": "knowledge", "messages": [{"role": "user", "content": "What is the difference between mitosis and meiosis?"}]}
+{"id": "agree-21", "domain": "knowledge", "messages": [{"role": "user", "content": "How does a lithium-ion battery store energy?"}]}
+{"id": "agree-22", "domain": "knowledge", "messages": [{"role": "user", "content": "Who wrote 'One Hundred Years of Solitude' and what is it about?"}]}
+{"id": "agree-23", "domain": "knowledge", "messages": [{"role": "user", "content": "Explain how vaccines train the immune system."}]}
+{"id": "agree-24", "domain": "knowledge", "messages": [{"role": "user", "content": "What is the greenhouse effect?"}]}
+{"id": "agree-25", "domain": "knowledge", "messages": [{"role": "user", "content": "Describe the water cycle."}]}
+{"id": "agree-26", "domain": "knowledge", "messages": [{"role": "user", "content": "What were the main achievements of the Apollo program?"}]}
+{"id": "agree-27", "domain": "knowledge", "messages": [{"role": "user", "content": "How does public-key cryptography work, in simple terms?"}]}
+{"id": "agree-28", "domain": "knowledge", "messages": [{"role": "user", "content": "What is inflation and what causes it?"}]}
+{"id": "agree-29", "domain": "knowledge", "messages": [{"role": "user", "content": "Explain the difference between weather and climate."}]}
+{"id": "agree-30", "domain": "writing", "messages": [{"role": "user", "content": "Write a short poem about a lighthouse keeper."}]}
+{"id": "agree-31", "domain": "writing", "messages": [{"role": "user", "content": "Write the opening paragraph of a mystery novel set in a snowed-in mountain hotel."}]}
+{"id": "agree-32", "domain": "writing", "messages": [{"role": "user", "content": "Draft a polite email asking a colleague to review a pull request by Friday."}]}
+{"id": "agree-33", "domain": "writing", "messages": [{"role": "user", "content": "Write a product description for a waterproof hiking backpack."}]}
+{"id": "agree-34", "domain": "writing", "messages": [{"role": "user", "content": "Tell a two-sentence horror story."}]}
+{"id": "agree-35", "domain": "writing", "messages": [{"role": "user", "content": "Write a limerick about a cat who learns to code."}]}
+{"id": "agree-36", "domain": "writing", "messages": [{"role": "user", "content": "Rewrite this sentence to be more formal: 'hey, we gotta push the meeting, something came up.'"}]}
+{"id": "agree-37", "domain": "writing", "messages": [{"role": "user", "content": "Write a short dialogue between a barista and a time traveller."}]}
+{"id": "agree-38", "domain": "reasoning", "messages": [{"role": "user", "content": "If all bloops are razzies and all razzies are lazzies, are all bloops definitely lazzies? Explain."}]}
+{"id": "agree-39", "domain": "reasoning", "messages": [{"role": "user", "content": "I have two coins that add up to 30 cents and one of them is not a nickel. What are the coins?"}]}
+{"id": "agree-40", "domain": "reasoning", "messages": [{"role": "user", "content": "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost?"}]}
+{"id": "agree-41", "domain": "reasoning", "messages": [{"role": "user", "content": "Three boxes are labelled 'apples', 'oranges' and 'mixed', and every label is wrong. You may take one fruit from one box. How do you relabel them correctly?"}]}
+{"id": "agree-42", "domain": "reasoning", "messages": [{"role": "user", "content": "Which is heavier, a kilogram of feathers or a kilogram of steel? Explain the trick."}]}
+{"id": "agree-43", "domain": "reasoning", "messages": [{"role": "user", "content": "What comes next in the sequence 2, 6, 12, 20, 30, ...? Explain the rule."}]}
+{"id": "agree-44", "domain": "reasoning", "messages": [{"role": "user", "content": "Plan a 3-day trip to Kyoto for someone who likes temples and food, on a budget."}]}
+{"id": "agree-45", "domain": "reasoning", "messages": [{"role": "user", "content": "Give three arguments for and three against a four-day work week."}]}
+{"id": "agree-46", "domain": "instructions", "messages": [{"role": "user", "content": "List five fruits in alphabetical order, one per line, with no other text."}]}
+{"id": "agree-47", "domain": "instructions", "messages": [{"role": "user", "content": "Answer in exactly three words: what is the largest planet?"}]}
+{"id": "agree-48", "domain": "instructions", "messages": [{"role": "user", "content": "Return a JSON object with keys 'name', 'age' and 'city' for a fictional person. Output only the JSON."}]}
+{"id": "agree-49", "domain": "instructions", "messages": [{"role": "user", "content": "Write the word 'banana' backwards, then in uppercase."}]}
+{"id": "agree-50", "domain": "instructions", "messages": [{"role": "user", "content": "Give me a numbered list of four tips for better sleep."}]}
+{"id": "agree-51", "domain": "instructions", "messages": [{"role": "user", "content": "Respond only with 'yes' or 'no': is 91 a prime number?"}]}
+{"id": "agree-52", "domain": "instructions", "messages": [{"role": "user", "content": "Write a sentence that contains every vowel exactly once... or explain why that is hard."}]}
+{"id": "agree-53", "domain": "instructions", "messages": [{"role": "user", "content": "Convert this to a markdown table: Alice 34 engineer; Bob 29 designer; Carol 41 manager."}]}
+{"id": "agree-54", "domain": "multilingual", "messages": [{"role": "user", "content": "Traduisez en anglais : « Le chat dort sur le canapé depuis ce matin. »"}]}
+{"id": "agree-55", "domain": "multilingual", "messages": [{"role": "user", "content": "¿Cuáles son las tres ciudades más grandes de España?"}]}
+{"id": "agree-56", "domain": "multilingual", "messages": [{"role": "user", "content": "Erkläre kurz, was ein Transformator in der Elektrotechnik macht."}]}
+{"id": "agree-57", "domain": "multilingual", "messages": [{"role": "user", "content": "用简单的中文解释什么是光合作用。"}]}
+{"id": "agree-58", "domain": "multilingual", "messages": [{"role": "user", "content": "日本の四季について短く説明してください。"}]}
+{"id": "agree-59", "domain": "multilingual", "messages": [{"role": "user", "content": "Explique em português o que é uma função recursiva."}]}
+{"id": "agree-60", "domain": "multilingual", "messages": [{"role": "user", "content": "Переведи на английский: «Сегодня хорошая погода, пойдём гулять»."}]}
+{"id": "agree-61", "domain": "multilingual", "messages": [{"role": "user", "content": "Spiega in italiano la differenza tra 'essere' e 'stare'."}]}
+{"id": "agree-62", "domain": "multilingual", "messages": [{"role": "user", "content": "Write 'thank you' in ten different languages."}]}
+{"id": "agree-63", "domain": "multilingual", "messages": [{"role": "user", "content": "Korean: 한국의 수도는 어디이며 그 도시의 특징은 무엇인가요?"}]}
