@@ -46,8 +46,10 @@ def make_counter(url, model):
                 r = post_json(base + path, mk(text))
                 return (r["count"] if isinstance(r.get("count"), int) else len(r["tokens"])) + margin, r
             try:
-                _, r = count("hello world")
+                n, r = count("hello world")
             except Exception:
+                continue
+            if n <= margin:  # llama.cpp answers the vLLM forms with {"tokens": []} instead of an error
                 continue
             return (lambda text: count(text)[0]), r.get("max_model_len"), label
     return None
